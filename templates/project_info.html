@@ -5,7 +5,24 @@
 </head>
 <body>
 
- "Title: {{ title }} Description: {{ description }} Max Grade: {{ max_grade }}
 
+<p>Title: {{ title }}<br> Description: {{ description }}<br> Max Grade: {{ max_grade }}</p>
+
+{% if grades %}
+<table>
+    <tr>
+        <th>Student Github</th>
+        <th>Grade</th>
+    </tr>
+    
+    {% for grade in grades %}
+    <tr>
+        <td><a href="/student?github={{ grade[0] }}">{{ grade[0] }}</td>
+        <td>{{ grade[1] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endif %}
 
 </body>

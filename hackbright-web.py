@@ -55,14 +55,18 @@ def add_student():
 def project_info():
     """Lists project info"""
     
+    title = request.args.get('title')
+
     project = hackbright.get_project_by_title(title)
-    
     proj_title, description, max_grade = project
 
+    grades = hackbright.get_grades_by_title(title)
+    
     html = render_template("project_info.html",
-                            title=title,
+                            title=proj_title,
                             description=description,
-                            max_grade=max_grade)
+                            max_grade=max_grade,
+                            grades=grades)
     return html
 
 

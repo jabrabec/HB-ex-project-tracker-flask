@@ -29,7 +29,7 @@
         </tr>
         {% for grade in grades %}
         <tr>
-            <td>{{ grade.project_title }}
+            <td> <a href="/projects?title={{ grade.project_title }}">{{ grade.project_title }}</a>
             </td>
             <td>{{ grade.grade }}
             </td>
